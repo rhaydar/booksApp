@@ -3,8 +3,16 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+GET     /					controllers.Default.redirect(to = "/books")
+
+# INDEX page for books
 GET		/books			controllers.BooksController.index()
+
+# NEW page for books
+GET		/books/new			controllers.BooksController.newBook()
+
+# CREATE page for books
+POST	/books				controllers.BooksController.create()
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
