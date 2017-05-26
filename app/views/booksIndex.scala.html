@@ -1,0 +1,25 @@
+@(books: List[com.avaje.ebean.SqlRow])
+
+@main("Books App") {
+  <h1>My Books</h1>
+  
+  <table>
+  	<thead>
+  		<tr>
+  			<th>Title</th>
+  			<th>Author</th>
+  			<th>Publication Year</th>
+  		</tr>
+  	</thead>
+
+  	<tbody>
+	@for(book <- books) {
+	  <tr>
+	  	<td>@book.getString("title")</td>
+	  	<td>@book.getString("author")</td>
+	  	<td>@book.getInteger("publication_year")</td>
+	  </tr>
+	}
+  	</tbody>
+  </table>
+}
